@@ -30,19 +30,19 @@ class PolicyTest extends TestCase
         self::assertTrue(Gate::allows("create", Todo::class));
     }
 
-    // public function testAuthorizable()
-    // {
-    //     $this->seed([UserSeeder::class, TodoSeeder::class]);
+    public function testAuthorizable()
+    {
+        $this->seed([UserSeeder::class, TodoSeeder::class]);
 
-    //     $user = User::where("email", "sahashi@gmail.com")->firstOrFail();
+        $user = User::where("email", "sahashi@gmail.com")->firstOrFail();
 
-    //     $todo = Todo::first();
+        $todo = Todo::first();
 
-    //     self::assertTrue($user->can("view", $todo));
-    //     self::assertTrue($user->can("update", $todo));
-    //     self::assertTrue($user->can("delete", $todo));
-    //     self::assertTrue($user->can("create", Todo::class));
-    // }
+        self::assertTrue($user->can("view", $todo));
+        self::assertTrue($user->can("update", $todo));
+        self::assertTrue($user->can("delete", $todo));
+        self::assertTrue($user->can("create", Todo::class));
+    }
 
     // public function testBefore()
     // {
