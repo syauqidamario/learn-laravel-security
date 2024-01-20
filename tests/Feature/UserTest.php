@@ -11,37 +11,37 @@ use Tests\TestCase;
 
 class UserTest extends TestCase
 {
-    // public function testAuth()
-    // {
-    //     $this->seed(UserSeeder::class);
+    public function testAuth()
+    {
+        $this->seed(UserSeeder::class);
 
-    //     $success = Auth::attempt([
-    //         "email" => "eko@localhost",
-    //         "password" => "rahasia"
-    //     ], true);
-    //     self::assertTrue($success);
+        $success = Auth::attempt([
+            "email" => "syauqi@localhost",
+            "password" => "himitsu"
+        ], true);
+        self::assertTrue($success);
 
-    //     $user = Auth::user();
-    //     self::assertNotNull($user);
-    //     self::assertEquals("eko@localhost", $user->email);
-    // }
+        $user = Auth::user();
+        self::assertNotNull($user);
+        self::assertEquals("syauqi@localhost", $user->email);
+    }
 
-    // public function testGuest()
-    // {
-    //     $user = Auth::user();
-    //     self::assertNull($user);
-    // }
+    public function testGuest()
+    {
+        $user = Auth::user();
+        self::assertNull($user);
+    }
 
-    // public function testLogin()
-    // {
-    //     $this->seed([UserSeeder::class]);
+    public function testLogin()
+    {
+        $this->seed([UserSeeder::class]);
 
-    //     $this->get("/users/login?email=eko@localhost&password=rahasia")
-    //         ->assertRedirect("/users/current");
+        $this->get("/users/login?email=syauqi@localhost&password=himitsu")
+            ->assertRedirect("/users/current");
 
-    //     $this->get("/users/login?email=salah&password=rahasia")
-    //         ->assertSeeText("Wrong credentials");
-    // }
+        $this->get("/users/login?email=salah&password=rahasia")
+            ->assertSeeText("Wrong credentials");
+    }
 
     public function testCurrent()
     {
@@ -73,19 +73,19 @@ class UserTest extends TestCase
             ->assertSeeText("Hello Toshihiko Sahashi");
     }
 
-    // public function testUserProvider()
-    // {
-    //     $this->seed([UserSeeder::class]);
+    public function testUserProvider()
+    {
+        $this->seed([UserSeeder::class]);
 
-    //     $this->get("/simple-api/users/current", [
-    //         "Accept" => "application/json"
-    //     ])
-    //         ->assertStatus(401);
+        $this->get("/simple-api/users/current", [
+            "Accept" => "application/json"
+        ])
+            ->assertStatus(401);
 
-    //     $this->get("/simple-api/users/current", [
-    //         "Accept" => "application/json",
-    //         "API-Key" => "secret"
-    //     ])
-    //         ->assertSeeText("Hello Khannedy");
-    // }
+        $this->get("/simple-api/users/current", [
+            "Accept" => "application/json",
+            "API-Key" => "secret"
+        ])
+            ->assertSeeText("Hello Syauqi");
+    }
 }
