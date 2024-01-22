@@ -19,18 +19,15 @@ use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
-    protected $policies = [
-        Todo::class => TodoPolicy::class
-    ];
     /**
      * The model to policy mappings for the application.
      *
      * @var array<class-string, class-string>
      */
-    // protected $policies = [
-    //     // Todo::class => TodoPolicy::class,
-    //     User::class => UserPolicy::class
-    // ];
+    protected $policies = [
+        Todo::class => TodoPolicy::class,
+        User::class => UserPolicy::class
+    ];
 
     /**
      * Register any authentication / authorization services.
